@@ -40,6 +40,7 @@ class Spam:
     def b(self):
         pass
 
+## 修饰属性
 @debugattr
 class Point:
     def __init__(self,x,y):
