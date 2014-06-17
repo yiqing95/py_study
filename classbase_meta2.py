@@ -7,13 +7,18 @@ class Descriptor:
         self.name = name
 
     def __get__(self, instance, cls):
+        # instance is the instance being manipulated
+        # eg stock instance
         print('Get ',self.name)
+        return instance.__dict__[self.name]
 
     def __set__(self, instance, value):
         print("set ",self.name,value)
+        instance.__dict__[self.name] = value
 
     def __delete__(self, instance):
         print("delete ",self.name)
+        del instance.__dict__[self.name]
 
 def make_signature(names):
     return Signature(
@@ -58,5 +63,8 @@ if __name__ == '__main__':
 
     stock = Stock('ACME',33,33)
     stock.shares
+    print(stock.shares)
     stock.shares = 100
+    print(stock.shares)
     del stock.shares
+    # print(stock.shares)

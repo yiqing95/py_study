@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+{% if object.id %}
+    <h1>Edit {{ object }}</h1>
+{% else %}
+    <h1>Add Contact</h1>
+{% endif %}
+{# <form action="{% url "contacts-new" %}" method="POST">  #}
+<form action="{{ target }}" method="POST">
+    {% csrf_token %}
+
+    <ul>
+        {{ form.as_ul }}
+
+        {# 下面示例的是单独渲染一个输入组件 #}
+        <hr />
+        {{ form.email }}
+        {% for field in form %}
+            {{ field.help_text }}
+            <div>
+            {{ field.label_tag }}
+            {{ field }}
+            </div>
+            <div id="{{ field.auto_id }}_errors">
+            {{ field.errors }}
+            </div>
+        {% endfor %}
+    </ul>
+
+    <input type="submit" value="save" />
+
+</form>
+
+</body>
+</html>
