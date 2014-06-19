@@ -1,4 +1,4 @@
-from helper import errorCall
+from meta_py3.helper import errorCall
 
 __author__ = 'yiqing'
 

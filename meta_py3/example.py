@@ -1,9 +1,9 @@
-from debugly4 import debugattr
+from meta_py3.debugly4 import debugattr
 
 __author__ = 'yiqing'
 
 # from debugly2 import debug
-from debugly3 import debug, debugmethods
+from meta_py3.debugly3 import debug, debugmethods
 
 
 @debug(prefix='yi-')

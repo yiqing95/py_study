@@ -1,6 +1,6 @@
 __author__ = 'yiqing'
 
-from debugly5 import *
+from meta_py3.debugly5 import *
 
 class Base(metaclass=debugmeta):
     pass
