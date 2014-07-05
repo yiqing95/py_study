@@ -4,9 +4,13 @@ import pygame
 
 class Game(object):
     def main(self,screen):
+        clock = pygame.time.Clock()
+
         image = pygame.image.load('player.png')
 
         while 1:
+            # 歇息下！
+            clock.tick(30)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return
