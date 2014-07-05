@@ -2,27 +2,10 @@ __author__ = 'yiqing'
 
 import pygame
 
-'''
-pygame.init()
-screen = pygame.display.set_mode((640,480))
-
-running = True
-while running:
-    "
-    每个游戏框架 都会有事件队列，事件循环的实现
-    然后注册事件处理器
-    "
-    # 从内存事件队列中不停取事件
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.KEYDOWN  and \
-                event.key == pygame.K_ESCAPE :# and event.key
-            running = False
-'''
-
 class Game(object):
-    def main(self,scree):
+    def main(self,screen):
+        image = pygame.image.load('player.png')
+
         while 1:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -30,8 +13,14 @@ class Game(object):
                 if event.type == pygame.KEYDOWN and \
                     event.key == pygame.K_ESCAPE:
                     return
+            screen.fill((200,200,200))
+            # blit 是block image transfer 的缩写！
+            screen.blit(image,(320,240))
+            # 双缓冲技术 交换display buffer跟drawing buffer的指针
+            pygame.display.flip()
 
 if __name__ == '__main__':
     pygame.init()
     screen = pygame.display.set_mode((640,480))
-    Game.main(screen)
+    game = Game()
+    game.main(screen)
