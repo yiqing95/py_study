@@ -11,6 +11,7 @@ class Game(object):
         image_y = 240
 
         while 1:
+            # 歇息下！ less CPU used
             clock.tick(30)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -19,19 +20,13 @@ class Game(object):
                     event.key == pygame.K_ESCAPE:
                     return
 
-            image_x += 1
-            key = pygame.key.get_pressed()
-            if key[pygame.K_LEFT]:
-                image_x -= 10
-            if key[pygame.K_RIGHT]:
-                image_x += 10
-            if key[pygame.K_UP]:
-                image_y -= 10
-            if key[pygame.K_DOWN]:
-                image_y += 10
+            image_x += 10
 
             screen.fill((200,200,200))
+            # blit 是block image transfer 的缩写！
+            screen.blit(image,(320,240))
             screen.blit(image,(image_x,image_y))
+            # 双缓冲技术 交换display buffer跟drawing buffer的指针
             pygame.display.flip()
 
 if __name__ == '__main__':
