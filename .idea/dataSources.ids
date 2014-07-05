@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="SQLite - mytest.db" uuid="46d43b96-f991-4285-8622-917da1b4faac">
+    <database-info product="SQLite" version="3.7.6.3" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+  </data-source>
+  <data-source source="LOCAL" name="SQLite - test2.db" uuid="742b0c66-6d3f-4e98-9a28-3daf72747bfe">
+    <database-info product="SQLite" version="3.7.6.3" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="fancy" schema="" catalog="" type="TABLE">
+      <column name="key" sqlType="VARCHAR(50)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="timestamp" sqlType="DATETIME" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="amount" sqlType="NUMERIC(10, 2)" length="2000000000" precision="10" nullable="true" jdbcType="6"/>
+      <column name="type" sqlType="VARCHAR(1)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="key"/>
+    </table>
+    <table name="published" schema="" catalog="" type="TABLE">
+      <column name="pub_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="pub_timestamp" sqlType="DATETIME" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="story_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="true" jdbcType="4"/>
+      <column name="version_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="true" jdbcType="4"/>
+      <primary-key columns="pub_id"/>
+      <foreign-key name="#FAKE_published_1" columns="story_id,version_id" ref-table="story" ref-schema="" ref-catalog="" ref-columns="story_id,version_id" update-rule="3" delete-rule="3" deferrability="1"/>
+    </table>
+    <table name="story" schema="" catalog="" type="TABLE">
+      <column name="story_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="version_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="headline" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="body" sqlType="TEXT" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="story_id,version_id"/>
+      <exported-key name="#FAKE_published_1" table="published" schema="" catalog="" columns="story_id,version_id"/>
+    </table>
+    <table name="user" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="fullname" sqlType="VARCHAR" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+  </data-source>
+  <data-source source="LOCAL" name="SQLite - test3.db" uuid="5c31e5ef-26fd-4f81-9a15-c1c50b509320">
+    <database-info product="SQLite" version="3.7.6.3" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="network" schema="" catalog="" type="TABLE">
+      <column name="network_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="network_id"/>
+    </table>
+    <table name="user" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="fullname" sqlType="VARCHAR" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+  </data-source>
+</component>

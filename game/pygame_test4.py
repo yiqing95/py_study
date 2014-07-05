@@ -7,13 +7,11 @@ class Game(object):
         clock = pygame.time.Clock()
 
         image = pygame.image.load('player.png')
-        sprites = pygame.sprite.Group()
-        self.player = Player(sprites)
+        image_x = 320
+        image_y = 240
 
         while 1:
             clock.tick(30)
-            dt = clock.tick(30)
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return
@@ -21,12 +19,19 @@ class Game(object):
                     event.key == pygame.K_ESCAPE:
                     return
 
-            sprites.update()
-            # t = dt / 1000
-            # sprites.update( 0.033 )
+            image_x += 1
+            key = pygame.key.get_pressed()
+            if key[pygame.K_LEFT]:
+                image_x -= 10
+            if key[pygame.K_RIGHT]:
+                image_x += 10
+            if key[pygame.K_UP]:
+                image_y -= 10
+            if key[pygame.K_DOWN]:
+                image_y += 10
+
             screen.fill((200,200,200))
-            # screen.blit(image,(320,240))
-            sprites.draw(screen)
+            screen.blit(image,(image_x,image_y))
             pygame.display.flip()
 
 class Player(pygame.sprite.Sprite):
