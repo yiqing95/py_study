@@ -14,7 +14,7 @@ def storeDbase(db,dbfilename=dbfilename):
             # 打印到文件 ！！！
             print(name + RECSEP + repr(value),file=dbfile)
         print(ENDDB,file=dbfile)
-        dbfile.close()
+    dbfile.close()
 
 def loadDbase(dbfilename=dbfilename):
     "pares data to reconstruct database"
@@ -33,3 +33,7 @@ def loadDbase(dbfilename=dbfilename):
         db[key] = rec
         key = input()
     return db
+
+if __name__ == '__main__':
+    from initdata import db
+    storeDbase(db)
