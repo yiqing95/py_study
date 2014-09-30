@@ -1,0 +1,4 @@
+hello stream world
+Enter a number8 squared is 16
+Enter a number6 squared is 12
+Enter a numberBye

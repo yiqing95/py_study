@@ -1,0 +1,20 @@
+__author__ = 'yiqing'
+
+from io  import StringIO
+
+buff = StringIO
+print(buff.write('spam\n'))
+
+print(
+    buff.write('egg\n')
+)
+print(
+    buff.getvalue()
+)
+
+buff = StringIO('ham\n\spam\n')
+print(buff.readline())
+print(
+    buff.readline(),
+    buff.readline(),
+)
