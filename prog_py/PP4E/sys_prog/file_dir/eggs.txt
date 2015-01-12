@@ -1,0 +1,2 @@
+HELLO stdio file
+hello descriptor file
